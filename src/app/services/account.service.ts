@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool} from 'amazon-cognito-identity-js';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { config as AwsConfig, CognitoIdentityCredentials } from 'aws-sdk';
 // import * as AWS from 'aws-sdk/global';
 import { Observable } from 'rxjs/Observable';
@@ -16,7 +17,7 @@ const poolData = {
 export class AccountService {
     userPool: any;
     session: any;
-    constructor() {
+    constructor(http: HttpClient) {
         this.userPool = new CognitoUserPool(poolData);
         this.session = {
             registered: false,
@@ -34,7 +35,7 @@ export class AccountService {
                     reject(err);
                     return;
                 }
-
+                console.log('getSession: ' + session.idToken.jwtToken);
                 resolve(session);
             });
         });
@@ -58,6 +59,7 @@ export class AccountService {
             cognitoUser.authenticateUser(authenticationDetails, {
                 onSuccess: (res) => {
                     console.log(res.getIdToken().getJwtToken());
+                    this.session.user = cognitoUser;
                     resolve(res);
                 },
                 onFailure: (err) => {
@@ -117,6 +119,21 @@ export class AccountService {
             }
             // Reset other services
             resolve();
+        });
+    }
+
+    getIdToken() {
+        return new Promise((resolve, reject) => {
+            console.log('AccountService.getSession');
+
+            this.userPool.getCurrentUser().getSession((err, session) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
+                console.log('getSession: ' + session.idToken.jwtToken);
+                resolve(session.idToken.jwtToken);
+            });
         });
     }
 

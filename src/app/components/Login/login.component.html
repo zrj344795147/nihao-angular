@@ -1,5 +1,10 @@
-<button (click)="goToSignUp()" >Go To Sign Up</button>
-<p>Login Page</p>
-<input id="username" [(ngModel)]="username" placeholder="username"  type="text">
-<input id="password" [(ngModel)]="password" placeholder="password"  type="password">
-<button (click)="clickLogin()" >Login</button>
+<div class="bg">
+    <button class='btn btn-dark' (click)="goToSignUp()" >Go To Sign Up</button>
+    <div class="card login-card" style="background-color:#9E9E9E;">
+        <input class="form-control" id="username" [(ngModel)]="username" placeholder="username"  type="text">
+        <input class="form-control" id="password" [(ngModel)]="password" placeholder="password"  type="password">
+        <button class='btn btn-primary' (click)="clickLogin()" >Login</button>
+        <div class='alert alert-danger'></div>
+    </div>
+</div>
+

@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
         this.accountService.getSession()
             .then(res => {
                 console.log('Already logged in');
+                console.log(res);
                 this.router.navigateByUrl('home');
             })
             .catch(err => {

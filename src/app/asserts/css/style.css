@@ -1,0 +1,24 @@
+
+.bg {
+    /* The image used */
+    background-image: url("../images/background.jpg");
+
+    /* Full height */
+    height: 800px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.form-control {
+    margin-top: 10px;
+}
+.card {
+    width:300px;
+
+    margin-left: 5%;
+    margin-top:10%;
+    padding: 10px 10px 10px 10px;
+
+}

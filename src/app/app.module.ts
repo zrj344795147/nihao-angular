@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './routing';
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/Login/login.component';
@@ -8,7 +10,7 @@ import { HomeComponent } from './components/Home/home.component';
 import { SignupComponent } from './components/Signup/signup.component';
 // Services
 import { AccountService } from './services/account.service';
-import { AppRoutingModule } from './routing';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -21,10 +23,12 @@ import { AppRoutingModule } from './routing';
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule,
     ],
     providers: [
-        AccountService
+        AccountService,
+        MessageService
     ],
     bootstrap: [AppComponent]
 })
