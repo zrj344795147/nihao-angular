@@ -137,23 +137,21 @@ export class AccountService {
         });
     }
 
-    // // Private
-    // _getSession(cognitoUser) {
-    //     console.log('AccountService._getSession for ' + cognitoUser.username);
-    //
-    //     return new Promise((resolve, reject) => {
-    //         cognitoUser.getSession((err, session) => {
-    //             if (err) {
-    //                 console.log('session validity: ' + err);
-    //                 this.signOut().then(res => resolve(res)).catch(err => reject(err));
-    //                 return;
-    //             }
-    //
-    //             console.log('session validity: ' + session.isValid());
-    //             this.session.user = cognitoUser;
-    //
-    //             resolve(session);
-    //         });
-    //     });
-    // }
+    resendComfirmaion(username) {
+        const userData = {
+            Username : username,
+            Pool : this.userPool
+        };
+        const cognitoUser = new CognitoUser(userData);
+
+        cognitoUser.resendConfirmationCode(function(err, result) {
+            if (err) {
+                console.log(err);
+                alert(err);
+                return;
+            }
+            console.log('call result: ' + result);
+        });
+    }
+
 }

@@ -33,7 +33,7 @@ export class MessageService {
                     // const headers = new HttpHeaders()
 
                     const data = {
-                        'message': '123123'
+                        'message': message
                     };
                     this.http.post(url, data, httpOption).toPromise()
                         .then(res => {

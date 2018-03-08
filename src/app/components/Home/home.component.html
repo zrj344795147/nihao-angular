@@ -1,2 +1,11 @@
-<button (click)="clickSignOut()" > Sign Out</button>
-<button (click)="clickSend()" >Send</button>
+<div class="bg">
+    <button class='btn btn-dark' (click)="clickSignOut()" > Sign Out</button>
+    <div class="card message-card" style="background-color:rgba(255,255,255,0.4);">
+        <span>
+            <input class="form-control message-input" id="username"  [(ngModel)]="message" placeholder="Say something"  type="text">
+
+            <button class='btn btn-primary' (click)="clickSend()" >Send</button>
+        </span>
+    </div>
+    <div class="card reply-card" style="background-color:rgba(255,255,255,0.4);"  [hidden]="reply == ''" >{{reply}}</div>
+</div>
