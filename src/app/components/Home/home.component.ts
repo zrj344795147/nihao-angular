@@ -52,9 +52,9 @@ export class HomeComponent implements OnInit {
         }
         this.messageService.getReply(this.message)
             .then(reply => {
-                const response = JSON.parse(reply['body']);
-                console.log(response['data']);
-                this.reply = response['data'];
+                // const response = JSON.parse(reply);
+                console.log(reply['data']);
+                this.reply = reply['data'];
             })
             .catch(err => {
                 console.log(err);

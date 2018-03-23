@@ -20,7 +20,7 @@ export class MessageService {
             this.accountService.getIdToken()
                 .then(idToken => {
                     // const url = 'https://298e853s72.execute-api.us-east-1.amazonaws.com/dev/reply';
-                    const url = 'https://wnmojldtx9.execute-api.us-east-1.amazonaws.com/dev/reply';
+                    const url = 'https://38pe1uil2i.execute-api.us-east-1.amazonaws.com/v1/reply';
                     // const url = 'https://wnmojldtx9.execute-api.us-east-1.amazonaws.com/test/reply';
                     const httpOption = {
                         headers: new HttpHeaders({
