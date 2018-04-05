@@ -55,6 +55,7 @@ export class HomeComponent implements OnInit {
                 // const response = JSON.parse(reply);
                 console.log(reply['data']);
                 this.reply = reply['data'];
+                this.message = '';
             })
             .catch(err => {
                 console.log(err);
